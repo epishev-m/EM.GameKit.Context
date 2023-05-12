@@ -1,0 +1,10 @@
+{
+  "name": "com.em.gamekit.context",
+  "displayName": "EM.GameKit.Context",
+  "version": "0.0.1",
+  "author": {
+    "name": "Maxim Epishev",
+    "email": "epishev.m@mail.ru"
+  },
+  "type": "library"
+}

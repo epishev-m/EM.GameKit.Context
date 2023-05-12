@@ -1,0 +1,30 @@
+{
+    "name": "EM.GameKit.Context",
+    "rootNamespace": "",
+    "references": [
+        "EM.Foundation",
+        "EM.IoC",
+        "EM.GameKit",
+        "UniTask",
+        "UniTask.DOTween",
+        "Leopotam.EcsLite",
+        "Leopotam.EcsLite.UnityEditor.Runtime",
+        "EM.UI",
+        "MessagePack.Annotations",
+        "DOTween.Modules",
+        "EM.ProfileSystem",
+        "EM.BuildSystem",
+        "EM.Assistant",
+        "UniTask.TextMeshPro",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
