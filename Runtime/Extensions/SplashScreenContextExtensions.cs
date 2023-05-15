@@ -10,7 +10,7 @@ public static class SplashScreenContextExtensions
 		var lifeTime = context.IsGlobalContext
 			? LifeTime.Global
 			: LifeTime.Local;
-		
+
 		context.DiContainer
 			.Bind<SplashScreenModel>()
 			.SetLifeTime(lifeTime)
