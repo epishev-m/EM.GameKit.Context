@@ -1,6 +1,7 @@
 namespace EM.GameKit.Context
 {
 
+using Ecs;
 using Foundation;
 using Leopotam.EcsLite;
 

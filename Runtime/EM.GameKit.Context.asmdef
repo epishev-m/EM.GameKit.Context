@@ -16,7 +16,8 @@
         "EM.BuildSystem",
         "EM.Assistant",
         "UniTask.TextMeshPro",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "EM.GameKit.Ecs"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
