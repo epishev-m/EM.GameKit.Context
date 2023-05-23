@@ -5,7 +5,7 @@ using Foundation;
 
 public static class StorageContextExtensions
 {
-	public static Context AddStorage(this Context context)
+	public static Context BindStorage(this Context context)
 	{
 		var lifeTime = context.IsGlobalContext
 			? LifeTime.Global

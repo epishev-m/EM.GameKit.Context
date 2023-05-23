@@ -7,7 +7,7 @@ using Profile;
 
 public static class ProfileContextExtensions
 {
-	public static Context AddProfile(this Context context)
+	public static Context BindProfile(this Context context)
 	{
 		var lifeTime = context.IsGlobalContext
 			? LifeTime.Global

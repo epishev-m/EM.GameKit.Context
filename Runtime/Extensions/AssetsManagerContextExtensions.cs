@@ -5,7 +5,7 @@ using Foundation;
 
 public static class AssetsManagerContextExtensions
 {
-	public static Context AddAssetsManager(this Context context)
+	public static Context BindAssetsManager(this Context context)
 	{
 		var lifeTime = context.IsGlobalContext
 			? LifeTime.Global

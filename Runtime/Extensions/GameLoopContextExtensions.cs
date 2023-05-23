@@ -5,7 +5,7 @@ using Foundation;
 
 public static class GameLoopContextExtensions
 {
-	public static Context AddGameLoop(this Context context)
+	public static Context BindGameLoop(this Context context)
 	{
 		var lifeTime = context.IsGlobalContext
 			? LifeTime.Global
@@ -26,7 +26,7 @@ public static class GameLoopContextExtensions
 		return context;
 	}
 
-	public static Context UseGameLoop(this Context context)
+	public static Context ConfigureGameLoop(this Context context)
 	{
 		context.DiContainer
 			.Resolve<IGameLoop>()

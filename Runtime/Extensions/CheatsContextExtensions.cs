@@ -5,7 +5,7 @@ using Foundation;
 
 public static class CheatsContextExtensions
 {
-	public static Context AddCheats(this Context context)
+	public static Context BindCheats(this Context context)
 	{
 		var lifeTime = context.IsGlobalContext
 			? LifeTime.Global
@@ -55,7 +55,7 @@ public static class CheatsContextExtensions
 		return context;
 	}
 
-	public static Context UseTestCheats(this Context context)
+	public static Context ConfigureTestCheats(this Context context)
 	{
 		context.DiContainer
 			.Resolve<Cheats>()

@@ -7,7 +7,7 @@ using Leopotam.EcsLite;
 
 public static class EcsContextExtensions
 {
-	public static Context AddEcs(this Context context)
+	public static Context BindEcs(this Context context)
 	{
 		var lifeTime = context.IsGlobalContext
 			? LifeTime.Global
@@ -28,7 +28,7 @@ public static class EcsContextExtensions
 		return context;
 	}
 
-	public static Context UseEcsDebug(this Context context)
+	public static Context ConfigureEcsDebug(this Context context)
 	{
 		var lifeTime = context.IsGlobalContext
 			? LifeTime.Global

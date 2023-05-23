@@ -5,7 +5,7 @@ using Foundation;
 
 public static class GdpRegulationContextExtensions
 {
-	public static Context BindSystemGdpRegulation(this Context context)
+	public static Context BindGdpRegulation(this Context context)
 	{
 		var lifeTime = context.IsGlobalContext
 			? LifeTime.Global

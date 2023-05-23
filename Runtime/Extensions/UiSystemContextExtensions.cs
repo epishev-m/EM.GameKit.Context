@@ -6,11 +6,17 @@ using UI;
 
 public static class UiSystemContextExtensions
 {
-	public static Context AddUiSystem(this Context context)
+	public static Context BindUiSystem(this Context context)
 	{
 		var lifeTime = context.IsGlobalContext
 			? LifeTime.Global
 			: LifeTime.Local;
+		
+		context.DiContainer
+			.Bind<IUiRoot>()
+			.SetLifeTime(lifeTime)
+			.To<UiRoot>()
+			.ToSingleton();
 
 		context.DiContainer
 			.Bind<IViewModelFactory>()
@@ -19,20 +25,26 @@ public static class UiSystemContextExtensions
 			.ToSingleton();
 
 		context.DiContainer
-			.Bind<IUiSystem>()
+			.Bind<IScreenSystem>()
 			.SetLifeTime(lifeTime)
-			.To<UiSystem>()
+			.To<ScreenSystem>()
+			.ToSingleton();
+
+		context.DiContainer
+			.Bind<IPanelSystem>()
+			.SetLifeTime(lifeTime)
+			.To<PanelSystem>()
 			.ToSingleton();
 
 		return context;
 	}
 
-	public static Context UseUiSystem(this Context context,
+	public static Context ConfigureUiSystem(this Context context,
 		string id)
 	{
 		context.DiContainer
-			.Resolve<IUiSystem>()
-			.CreateUiRootAsync(id);
+			.Resolve<IUiRoot>()
+			.CreateRootTransform(id);
 
 		return context;
 	}
@@ -44,8 +56,12 @@ public static class UiSystemContextExtensions
 			: LifeTime.Local;
 
 		context.DiContainer
-			.Resolve<IUiSystem>()
-			.Unload(lifeTime);
+			.Resolve<IScreenSystem>()
+			.Unbind(lifeTime);
+
+		context.DiContainer
+			.Resolve<IUiRoot>()
+			.UnloadPanelView(lifeTime);
 
 		return context;
 	}
