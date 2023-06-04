@@ -5,7 +5,7 @@ using Foundation;
 
 public static class InternetConnectionContextExtensions
 {
-	public static Context AddInternetConnection(this Context context)
+	public static Context BindInternetConnection(this Context context)
 	{
 		var lifeTime = context.IsGlobalContext
 			? LifeTime.Global

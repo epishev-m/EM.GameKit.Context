@@ -12,15 +12,15 @@ public static class CurrencyTooltipContextExtensions
 			: LifeTime.Local;
 
 		context.DiContainer
-			.Bind<CurrencyTooltipRouter>()
+			.Bind<IconTooltipRouter>()
 			.SetLifeTime(lifeTime)
-			.To<CurrencyTooltipRouter>()
+			.To<IconTooltipRouter>()
 			.ToSingleton();
 
 		context.DiContainer
-			.Bind<SimpleCurrencyTooltipViewModel>()
+			.Bind<IconTooltipViewModel>()
 			.SetLifeTime(lifeTime)
-			.To<SimpleCurrencyTooltipViewModel>();
+			.To<IconTooltipViewModel>();
 
 		return context;
 	}
