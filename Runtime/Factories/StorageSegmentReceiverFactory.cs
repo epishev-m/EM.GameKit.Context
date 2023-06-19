@@ -2,6 +2,7 @@
 {
 
 using System;
+using Foundation;
 using IoC;
 using Profile;
 
@@ -11,9 +12,16 @@ public sealed class StorageSegmentReceiverFactory : IStorageSegmentReceiverFacto
 
 	#region IStorageSegmentReceiverFactory
 
-	public IStorageSegmentSaver Get(Type type)
+	public Result<IStorageSegmentSaver> Get(Type type)
 	{
-		return _diContainer.Resolve(type) as IStorageSegmentSaver;
+		var saver = _diContainer.Resolve(type);
+
+		if (saver is IStorageSegmentSaver result)
+		{
+			return new SuccessResult<IStorageSegmentSaver>(result);
+		}
+
+		return new ErrorResult<IStorageSegmentSaver>("Failed to create StorageSegmentSaver");
 	}
 
 	#endregion
