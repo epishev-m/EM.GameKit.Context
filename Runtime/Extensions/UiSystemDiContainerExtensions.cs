@@ -42,13 +42,14 @@ public static class UiSystemDiContainerExtensions
 		return container;
 	}
 
-	public static IDiContainer ReleaseUiSystem(this IDiContainer container)
+	public static IDiContainer ReleaseUiSystem(this IDiContainer container,
+		LifeTime lifeTime)
 	{
 		container.Resolve<IScreenSystem>()
-			.Unbind(LifeTime.Local);
+			.Unbind(lifeTime);
 
 		container.Resolve<IUiRoot>()
-			.UnloadPanelView(LifeTime.Local);
+			.UnloadPanelView(lifeTime);
 
 		return container;
 	}

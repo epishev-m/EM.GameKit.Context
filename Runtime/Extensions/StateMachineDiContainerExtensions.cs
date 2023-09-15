@@ -1,19 +1,21 @@
+using EM.Foundation;
+using EM.IoC;
+
 namespace EM.GameKit.Context
 {
 
-using IoC;
-
 public static class StateMachineDiContainerExtensions
 {
-	public static IDiContainer BindStateMachine(this IDiContainer container)
+	public static IDiContainer BindStateMachine(this IDiContainer container,
+		LifeTime lifeTime)
 	{
 		container.Bind<IGameStateFactory>()
-			.InGlobal()
+			.SetLifeTime(lifeTime)
 			.To<GameStateFactory>()
 			.AsSingle();
 
 		container.Bind<IGameStateMachine>()
-			.InGlobal()
+			.SetLifeTime(lifeTime)
 			.To<GameStateMachine>()
 			.AsSingle();
 

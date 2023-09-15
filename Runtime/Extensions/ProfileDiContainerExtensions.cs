@@ -49,10 +49,11 @@ public static class ProfileDiContainerExtensions
 		return container;
 	}
 
-	public static IDiContainer ReleaseProfile(this IDiContainer container)
+	public static IDiContainer ReleaseProfile(this IDiContainer container,
+		LifeTime lifeTime)
 	{
 		container.Resolve<IProfile>()
-			.Unbind(LifeTime.Local);
+			.Unbind(lifeTime);
 
 		return container;
 	}

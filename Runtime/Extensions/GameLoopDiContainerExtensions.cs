@@ -30,10 +30,11 @@ public static class GameLoopDiContainerExtensions
 		return container;
 	}
 
-	public static IDiContainer ReleaseGameLoop(this IDiContainer container)
+	public static IDiContainer ReleaseGameLoop(this IDiContainer container,
+		LifeTime lifeTime)
 	{
 		container.Resolve<IGameLoop>()
-			.Unbind(LifeTime.Local);
+			.Unbind(lifeTime);
 
 		return container;
 	}
