@@ -28,7 +28,7 @@ public static class EcsDiContainerExtensions
 		LifeTime lifeTime)
 	{
 		var gameLoop = container.Resolve<IGameLoop>();
-		
+
 		gameLoop.Bind(typeof(DebugEcsRunner))
 			.SetLifeTime(lifeTime)
 			.To<DebugEcsRunner>();
