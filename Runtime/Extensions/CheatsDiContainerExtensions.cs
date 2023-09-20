@@ -1,13 +1,14 @@
+using EM.Foundation;
+using EM.GameKit.UI;
+using EM.IoC;
+
 namespace EM.GameKit.Context
 {
-
-using Foundation;
-using IoC;
 
 public static class CheatsDiContainerExtensions
 {
 	public static IDiContainer BindCheats(this IDiContainer container,
-		LifeTime lifeTime)
+		LifeTime lifeTime = LifeTime.Global)
 	{
 		container.Bind<ICheatBinder>()
 			.SetLifeTime(lifeTime)
@@ -47,7 +48,7 @@ public static class CheatsDiContainerExtensions
 	}
 
 	public static IDiContainer ConfigureTestCheats(this IDiContainer container,
-		LifeTime lifeTime)
+		LifeTime lifeTime = LifeTime.Local)
 	{
 		container.Resolve<Cheats>()
 			.Add<CheatTest>(lifeTime);

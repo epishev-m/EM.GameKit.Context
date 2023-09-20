@@ -1,15 +1,15 @@
+using EM.Foundation;
+using EM.GameKit.Ecs;
+using EM.IoC;
+using Leopotam.EcsLite;
+
 namespace EM.GameKit.Context
 {
-
-using IoC;
-using Ecs;
-using Foundation;
-using Leopotam.EcsLite;
 
 public static class EcsDiContainerExtensions
 {
 	public static IDiContainer BindEcs(this IDiContainer container,
-		LifeTime lifeTime)
+		LifeTime lifeTime = LifeTime.Global)
 	{
 		container.Bind<EcsWorld>()
 			.SetLifeTime(lifeTime)
@@ -25,7 +25,7 @@ public static class EcsDiContainerExtensions
 	}
 
 	public static IDiContainer ConfigureEcsDebug(this IDiContainer container,
-		LifeTime lifeTime)
+		LifeTime lifeTime = LifeTime.Global)
 	{
 		var gameLoop = container.Resolve<IGameLoop>();
 

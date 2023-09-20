@@ -1,9 +1,9 @@
+using System;
+using EM.Foundation;
+using EM.IoC;
+
 namespace EM.GameKit.Context
 {
-
-using System;
-using Foundation;
-using IoC;
 
 public sealed class GameStateFactory : IGameStateFactory
 {

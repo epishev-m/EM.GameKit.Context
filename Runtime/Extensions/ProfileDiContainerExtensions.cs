@@ -1,15 +1,15 @@
+using EM.BuildSystem;
+using EM.Foundation;
+using EM.IoC;
+using EM.Profile;
+
 namespace EM.GameKit.Context
 {
-
-using BuildSystem;
-using Foundation;
-using IoC;
-using Profile;
 
 public static class ProfileDiContainerExtensions
 {
 	public static IDiContainer BindProfile(this IDiContainer container,
-		LifeTime lifeTime)
+		LifeTime lifeTime = LifeTime.Global)
 	{
 		container.Bind<IStorageSegmentReceiverFactory>()
 			.SetLifeTime(lifeTime)
@@ -43,14 +43,14 @@ public static class ProfileDiContainerExtensions
 
 		container.Bind<IProfile>()
 			.SetLifeTime(lifeTime)
-			.To<Profile>()
+			.To<Profile.Profile>()
 			.AsSingle();
 
 		return container;
 	}
 
 	public static IDiContainer ReleaseProfile(this IDiContainer container,
-		LifeTime lifeTime)
+		LifeTime lifeTime = LifeTime.Local)
 	{
 		container.Resolve<IProfile>()
 			.Unbind(lifeTime);

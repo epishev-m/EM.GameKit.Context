@@ -1,13 +1,13 @@
-﻿namespace EM.GameKit.Context
-{
+﻿using EM.Foundation;
+using EM.IoC;
 
-using IoC;
-using Foundation;
+namespace EM.GameKit.Context
+{
 
 public static class GameLoopDiContainerExtensions
 {
 	public static IDiContainer BindGameLoop(this IDiContainer container,
-		LifeTime  lifeTime)
+		LifeTime lifeTime = LifeTime.Global)
 	{
 		container.Bind<IGameLoopObjectFactory>()
 			.SetLifeTime(lifeTime)
@@ -31,7 +31,7 @@ public static class GameLoopDiContainerExtensions
 	}
 
 	public static IDiContainer ReleaseGameLoop(this IDiContainer container,
-		LifeTime lifeTime)
+		LifeTime lifeTime = LifeTime.Local)
 	{
 		container.Resolve<IGameLoop>()
 			.Unbind(lifeTime);

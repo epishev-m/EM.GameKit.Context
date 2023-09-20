@@ -1,10 +1,10 @@
-﻿namespace EM.GameKit.Context
-{
+﻿using System;
+using EM.Foundation;
+using EM.IoC;
+using EM.Profile;
 
-using System;
-using Foundation;
-using IoC;
-using Profile;
+namespace EM.GameKit.Context
+{
 
 public sealed class StorageSegmentReceiverFactory : IStorageSegmentReceiverFactory
 {

@@ -1,8 +1,9 @@
-﻿namespace EM.GameKit.Context
-{
+﻿using EM.Foundation;
+using EM.GameKit.UI;
+using EM.IoC;
 
-using Foundation;
-using IoC;
+namespace EM.GameKit.Context
+{
 
 public sealed class CheatFactory : ICheatFactory
 {

@@ -1,8 +1,9 @@
-﻿namespace EM.GameKit.Context
-{
+﻿using EM.Foundation;
+using EM.GameKit.UI;
+using EM.IoC;
 
-using IoC;
-using Foundation;
+namespace EM.GameKit.Context
+{
 
 public static class BlackoutDiContainerExtensions
 {

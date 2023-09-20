@@ -1,9 +1,9 @@
-﻿namespace EM.GameKit.Context
-{
+﻿using System;
+using EM.IoC;
+using EM.UI;
 
-using System;
-using IoC;
-using UI;
+namespace EM.GameKit.Context
+{
 
 public sealed class ViewModelFactory : IViewModelFactory
 {

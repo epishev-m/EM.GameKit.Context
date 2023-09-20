@@ -1,8 +1,8 @@
+using EM.IoC;
+using UnityEngine;
+
 namespace EM.GameKit.Context
 {
-
-using UnityEngine;
-using IoC;
 
 public abstract class ContextDecorator : MonoBehaviour
 {

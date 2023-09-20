@@ -1,13 +1,14 @@
-﻿namespace EM.GameKit.Context
-{
+﻿using EM.Foundation;
+using EM.GameKit.UI;
+using EM.IoC;
 
-using IoC;
-using Foundation;
+namespace EM.GameKit.Context
+{
 
 public static class InternetConnectionDiContainerExtensions
 {
 	public static IDiContainer BindInternetConnection<TConfigProvider>(this IDiContainer container,
-		LifeTime lifeTime)
+		LifeTime lifeTime = LifeTime.Local)
 		where TConfigProvider : class, IInternetConnectionConfigProvider
 	{
 		container.Bind<InternetConnection>()

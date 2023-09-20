@@ -1,13 +1,13 @@
+using EM.Foundation;
+using EM.IoC;
+
 namespace EM.GameKit.Context
 {
-
-using IoC;
-using Foundation;
 
 public static class AssetsManagerDiContainerExtensions
 {
 	public static IDiContainer BindAssetsManager(this IDiContainer container,
-		LifeTime lifeTime)
+		LifeTime lifeTime = LifeTime.Global)
 	{
 		container.Bind<IAssetsManager>()
 			.SetLifeTime(lifeTime)

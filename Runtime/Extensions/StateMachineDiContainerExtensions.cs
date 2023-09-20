@@ -7,7 +7,7 @@ namespace EM.GameKit.Context
 public static class StateMachineDiContainerExtensions
 {
 	public static IDiContainer BindStateMachine(this IDiContainer container,
-		LifeTime lifeTime)
+		LifeTime lifeTime = LifeTime.Global)
 	{
 		container.Bind<IGameStateFactory>()
 			.SetLifeTime(lifeTime)

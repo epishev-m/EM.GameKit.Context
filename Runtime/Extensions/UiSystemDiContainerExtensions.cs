@@ -1,14 +1,14 @@
+using EM.Foundation;
+using EM.IoC;
+using EM.UI;
+
 namespace EM.GameKit.Context
 {
-
-using Foundation;
-using IoC;
-using UI;
 
 public static class UiSystemDiContainerExtensions
 {
 	public static IDiContainer BindUiSystem(this IDiContainer container,
-		LifeTime lifeTime)
+		LifeTime lifeTime = LifeTime.Global)
 	{
 		container.Bind<IUiRoot>()
 			.SetLifeTime(lifeTime)
@@ -43,7 +43,7 @@ public static class UiSystemDiContainerExtensions
 	}
 
 	public static IDiContainer ReleaseUiSystem(this IDiContainer container,
-		LifeTime lifeTime)
+		LifeTime lifeTime = LifeTime.Local)
 	{
 		container.Resolve<IScreenSystem>()
 			.Unbind(lifeTime);

@@ -1,13 +1,14 @@
+using EM.Foundation;
+using EM.GameKit.UI;
+using EM.IoC;
+
 namespace EM.GameKit.Context
 {
-
-using IoC;
-using Foundation;
 
 public static class GdpRegulationDiContainerExtensions
 {
 	public static IDiContainer BindGdpRegulation<TConfigProvider>(this IDiContainer container,
-		LifeTime lifeTime)
+		LifeTime lifeTime = LifeTime.Local)
 		where TConfigProvider : class, IGdpRegulationConfigProvider
 	{
 		container.Bind<GdpRegulationModel>()

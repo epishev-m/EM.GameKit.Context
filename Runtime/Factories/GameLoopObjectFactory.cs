@@ -1,8 +1,8 @@
-﻿namespace EM.GameKit.Context
-{
+﻿using System;
+using EM.IoC;
 
-using System;
-using IoC;
+namespace EM.GameKit.Context
+{
 
 public sealed class GameLoopObjectFactory : IGameLoopObjectFactory
 {

@@ -1,20 +1,18 @@
-namespace EM.GameKit.Context
-{
-
 using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using Foundation;
-using IoC;
+using EM.Foundation;
+using EM.IoC;
 using UnityEngine;
+
+namespace EM.GameKit.Context
+{
 
 [DisallowMultipleComponent]
 public abstract class Context : MonoBehaviour
 {
 	[SerializeField]
 	private List<ContextDecorator> _decorators;
-
-	private static IDiContainer _diContainer;
 
 	private readonly CancellationTokenSource _cts = new();
 
@@ -39,14 +37,18 @@ public abstract class Context : MonoBehaviour
 		_cts.Cancel();
 		Release();
 		ReleaseDecorators();
-		_diContainer.Unbind(LifeTime.Local);
+		DiContainer.Unbind(LifeTime.Local);
 	}
 
 	#endregion
 
 	#region Context
 
-	public IDiContainer DiContainer => _diContainer;
+	protected static IDiContainer DiContainer
+	{
+		get;
+		private set;
+	}
 
 	protected abstract void Initialize();
 
@@ -87,21 +89,21 @@ public abstract class Context : MonoBehaviour
 
 	private static void CreateContainer()
 	{
-		if (_diContainer != null)
+		if (DiContainer != null)
 		{
 			return;
 		}
 
 		var reflector = new Reflector();
-		_diContainer = new DiContainer(reflector);
+		DiContainer = new DiContainer(reflector);
 
-		_diContainer.Bind<IReflector>()
+		DiContainer.Bind<IReflector>()
 			.InGlobal()
 			.To(reflector);
 
-		_diContainer.Bind<IDiContainer>()
+		DiContainer.Bind<IDiContainer>()
 			.InGlobal()
-			.To(_diContainer);
+			.To(DiContainer);
 	}
 
 	#endregion

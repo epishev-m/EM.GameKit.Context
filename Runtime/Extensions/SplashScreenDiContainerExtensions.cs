@@ -1,13 +1,14 @@
+using EM.Foundation;
+using EM.GameKit.UI;
+using EM.IoC;
+
 namespace EM.GameKit.Context
 {
-
-using IoC;
-using Foundation;
 
 public static class SplashScreenDiContainerExtensions
 {
 	public static IDiContainer BindSplashScreen<TConfigProvider>(this IDiContainer container,
-		LifeTime lifeTime)
+		LifeTime lifeTime = LifeTime.Local)
 		where TConfigProvider : class, ISplashScreenConfigProvider
 	{
 		container.Bind<SplashScreenModel>()
